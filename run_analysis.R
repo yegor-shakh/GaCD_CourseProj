@@ -44,10 +44,20 @@ train.All$class <- "Train"
 codebook(train.All)
 
 
-df <- rbind(test.All, train.All)
-df <- df[with(df, order(class, subjid, activityId)), ]
+##### Create a tidy dataset #####
+df1 <- rbind(test.All, train.All)
+df1 <- df[with(df, order(class, subjid, activityId)), ]
 df1 <- merge(df, alabels, by = "activityId")
 
 df1 <- df1[ , c(ncol(df1)-1, 2, 1, ncol(df1), 5:ncol(df1)-2)]  # move 'class', 'subjid', 'activityId', 'activity' columns to the first place
-df1 <- df2[with(df2, order(class, subjid, activityId)), ]
+df1 <- df1[with(df1, order(class, subjid, activityId)), ]
 codebook(df1)
+
+
+##### Create a second, independent tidy data set with the average of each variable for each activity and each subject. #####
+df2 <- group_by(df1, class, subjid, activityId, activity)
+df2 <- summarise_each(df2, funs(mean))
+
+
+##### Saving the dataset#####
+write.table(df2, "TidyDS2_mean.txt", row.name=FALSE) 
