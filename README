@@ -1,0 +1,16 @@
+1) Loading raw datasets:
+	UCI HAR Dataset/activity_labels.txt	# activity labels
+	UCI HAR Dataset/features.txt		# variable labels
+
+	UCI HAR Dataset/test/subject_test.txt	# subjects
+	UCI HAR Dataset/test/x_test.txt		# subject activity values
+	UCI HAR Dataset/test/y_test.txt		# subject activity id
+
+	UCI HAR Dataset/train/subject_train.txt	# subjects
+	UCI HAR Dataset/train/x_train.txt	# subject activity values
+	UCI HAR Dataset/train/y_train.txt	# subject activity id
+
+2) Merging Test and Train datasets row-by-row and add a variable "Class" with values "Test" or "Train" accordingly; Subset only "mean" and "std" variables
+3) Set Test and Train together and merge with alabels (activity_labels.txt) dataset by activity id
+4) Sort the dataset by "class", "subjid", "activityId"
+5) Create a second, independent tidy data set with the average of each variable for each activity and each subject.
