@@ -1,30 +1,44 @@
 ---
-title: "Getting and Cleaning Data Course Project"
-author: "Iegor"
-date: "April 3, 2016"
-output: html_document
+title: "CODE BOOK - Getting and Cleaning Data Course Project"
+output: github_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+class - there were two subject groups: Test and Train
 
-## R Markdown
+subjid - The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+  1 - 30
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+activityId, activity - Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist.
 
-```{r cars}
-summary(cars)
-```
+  Laying - activityid = 6
+  Sitting - activityid = 4
+  Standing - activityid = 5
+  Walking - activityid = 1
+  Walking_Downstairs - activityid = 2
+  Walking_Upstairs - activityid = 3
+  
+These signals were used to estimate variables of the feature vector for each pattern: '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-## Including Plots
+  tBodyAcc-XYZ
+  tGravityAcc-XYZ
+  tBodyAccJerk-XYZ
+  tBodyGyro-XYZ
+  tBodyGyroJerk-XYZ
+  tBodyAccMag
+  tGravityAccMag
+  tBodyAccJerkMag
+  tBodyGyroMag
+  tBodyGyroJerkMag
+  fBodyAcc-XYZ
+  fBodyAccJerk-XYZ
+  fBodyGyro-XYZ
+  fBodyAccMag
+  fBodyAccJerkMag
+  fBodyGyroMag
+  fBodyGyroJerkMag
 
-You can also embed plots, for example:
+The set of variables that were estimated from these signals and retained in tidydata are:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+mean(): Mean value
+std(): Standard deviation
